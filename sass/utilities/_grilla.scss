@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+.grilla {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    row-gap: 30px;
+    column-gap: 15px;
+}
+
+
+//  responsive
+@media screen and (max-width: 1399.99px) {
+    .grilla {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media screen and (max-width: 1199.99px) {
+    .grilla {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 991.99px) {
+    .grilla {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 766.99px) {
+    .grilla {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+//  bajo la medida de los gaps en mobile para aprovechar mas la pantalla
+@media screen and (max-width: 575.99px) {
+
+    .container {
+        padding: .3em;
+    }
+}

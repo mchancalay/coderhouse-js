@@ -1,0 +1,59 @@
+@use '../base/colors';
+
+.carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+// Articulos en carrito
+.articulo {
+
+    &--carrito {
+        display: grid;
+        grid-template-columns: 150px auto;
+        grid-row: 1fr 1fr;
+        column-gap: 20px;
+    }
+    
+    &__img {
+
+        &--carrito {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #fff;
+            border-image: colors.$color-gradient-primary 1;
+        }
+    }
+
+    &__imagen {
+        position: relative;
+        grid-row: span 2; 
+    }
+
+    &__circulo--carrito {
+        width: 24px;
+        height: 24px;
+        border: 2px solid #fff;
+        background-image: colors.$color-gradient-primary;
+        border-radius: 100%;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__cantidad--carrito {
+        color: #fff;
+    }
+
+    &__configs--carrito {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        border: 1px solid #fff;
+        border-image: colors.$color-gradient-primary 1;
+    }
+}
