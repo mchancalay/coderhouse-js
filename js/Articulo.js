@@ -2,13 +2,14 @@ import Carrito from "./Carrito.js";
 
 export default class Articulo {
 
-    constructor(id, nombre, precio, url, carrito) {
+    constructor(id, nombre, precio, url, carrito, stock) {
         this.id = id
         this.nombre = nombre;
         this.precio = precio;
         this.url = url;
         this.cantidad = 0;
         this.carrito = carrito;
+        this.stock = stock;
     }
 
     // Cada articulo sabra mostrarse dependiendo en donde se encuentre:
@@ -33,8 +34,18 @@ export default class Articulo {
         // Agrega al carrito el articulo seleccionado
         const boton = document.getElementById(`botonId-${this.id}`);
         boton.addEventListener("click", () => {
-            const carrito = new Carrito(); // Obtener la instancia única del carrito
-            carrito.agregarAlCarrito(this);
+            if(this.estaEnStock()){
+                const carrito = new Carrito(); // Obtener la instancia única del carrito
+                carrito.agregarAlCarrito(this);
+            } else {
+                Toastify({
+                    text: `${this.nombre} fuera de stock o máximo alcanzado`,
+                    duration: 2000,
+                    style: {
+                      background: "#cf0617",
+                    }
+                  }).showToast();
+            }
         });
 
     }
@@ -70,12 +81,22 @@ export default class Articulo {
         const sumar = document.getElementById(`botonId-${this.id}--sumar`);
 
         sumar.addEventListener("click", () => {
-            const cantidad = document.getElementById(`articuloCantidadId-${this.id}`);
-            cantidad.innerHTML = "";
-            cantidad.innerHTML = this.cantidad += 1;
-            const subtotal = document.getElementById(`articuloSubtotalId-${this.id}`);
-            const subtotalSinFormato = this.cantidad * this.precio
-            subtotal.innerHTML = `Subtotal: $${subtotalSinFormato.toLocaleString()}`;
+            if(this.estaEnStock()){
+                const cantidad = document.getElementById(`articuloCantidadId-${this.id}`);
+                cantidad.innerHTML = "";
+                cantidad.innerHTML = this.cantidad += 1;
+                const subtotal = document.getElementById(`articuloSubtotalId-${this.id}`);
+                const subtotalSinFormato = this.cantidad * this.precio
+                subtotal.innerHTML = `Subtotal: $${subtotalSinFormato.toLocaleString()}`;
+            } else {
+                Toastify({
+                    text: `${this.nombre} fuera de stock o máximo alcanzado`,
+                    duration: 2000,
+                    style: {
+                      background: "#cf0617",
+                    }
+                  }).showToast();
+            }
         });
 
         // Restar 
@@ -104,5 +125,9 @@ export default class Articulo {
 
     calcularSubtotal() {
         return this.precio * this.cantidad;
+    }
+
+    estaEnStock(){
+        return this.cantidad <= this.stock ? true : false;
     }
 }
