@@ -1,0 +1,12 @@
+// efecto degradado en texto
+@mixin degradado($linear-gradient) {
+    background-image: $linear-gradient;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@mixin resetInput() {
+    all: initial;
+}

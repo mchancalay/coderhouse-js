@@ -1,5 +1,37 @@
 @use '../base/colors';
+@use '../utilities/mixins';
 
 .navegacion {
-   background-color: #fff;
-}
+   background-color: colors.$color-light;
+
+   &__contenido {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+   margin-bottom: 40px;
+
+   &__carrito {
+      position: relative;
+
+      &-img {
+            width: 30px;
+      }
+
+      &-circulo {
+         color: #fff;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         position: absolute;
+         width: 20px;
+         height: 20px;
+         border-radius: 100%;
+         background-color: colors.$color-circulo-cant-carrito;
+         z-index: 1;
+         top: -5px;
+         right: -9px;
+      }
+   }
+
+} 

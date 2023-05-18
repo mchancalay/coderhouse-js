@@ -19,7 +19,7 @@ export default class Articulo {
         const article = document.createElement("article");
         article.classList.add(`articulo`);
         article.innerHTML = `  <div class="articulo__imagen">
-                                    <button id="botonId-${this.id}" class="boton-icon articulo__carrito"><img src="./imgs/icon/bx-cart-add.svg" alt=""></button>
+                                    <button id="botonId-${this.id}" class="boton-icon articulo__carrito"><img class="articulo__carrito-img" src="./imgs/icon/carrito-de-compras.png" alt=""></button>
                                     <img class="articulo__img" src="${this.url}">
                                 </div>
                                 <div class="articulo__info">
@@ -40,7 +40,9 @@ export default class Articulo {
             } else {
                 Toastify({
                     text: `${this.nombre} fuera de stock o máximo alcanzado`,
-                    duration: 2000,
+                    close: true,
+                    gravity: "bottom", // `top` or `bottom`
+                    position: "left", // `left`, `center` or `right`
                     style: {
                       background: "#cf0617",
                     }
@@ -128,6 +130,6 @@ export default class Articulo {
     }
 
     estaEnStock(){
-        return this.cantidad <= this.stock ? true : false;
+        return this.cantidad < this.stock ? true : false;
     }
 }

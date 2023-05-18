@@ -10,6 +10,7 @@ export default class Carrito {
       return Carrito.instancia;
     }
     Carrito.instancia = this;
+    this.cantidadTotal = 0
   }
 
   agregarAlCarrito(articulo) {
@@ -23,9 +24,11 @@ export default class Carrito {
       }
       Toastify({
         text: `${articulo.nombre} se agregó al carrito`,
-        duration: 2000,
+        duration: 1500,
+        gravity: "bottom", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
         style: {
-          background: "linear-gradient(to left top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8fa0e7, #83a5eb, #77abee, #69aef3, #57b1f8, #3eb4fc, #00b7ff)",
+          background: "linear-gradient(to left bottom, #ba17ff, #43b6ff)",
         }
       }).showToast();
     }
@@ -53,6 +56,7 @@ export default class Carrito {
       a.cantidad = 1;
     })
     this.articulos = [];
+    this.resetearCantidadEnElIndex();
   }
 
   limpiezaCarrito() {
@@ -69,6 +73,7 @@ export default class Carrito {
     this.compras = this.articulos;
     this.borrarCarrito();
   }
+
 }
 
 

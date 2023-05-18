@@ -5,14 +5,14 @@ import Carrito from './js/Carrito.js';
 const catalogo = new Catalogo();
 const carrito = new Carrito();
 
-catalogo.agregarArticulo(new Articulo(1, "Chaleco The North Face Negro", 94999.99, "./imgs/1.jpg", carrito, 8));
+catalogo.agregarArticulo(new Articulo(1, "Chaleco The North Face Negro", 94999.99, "./imgs/1.jpg", carrito, 4));
 catalogo.agregarArticulo(new Articulo(2, "Camisa LV Blanca", 72199.99, "./imgs/2.jpg", carrito, 2));
-catalogo.agregarArticulo(new Articulo(3, "Camisa LV Azul", 72199.99, "./imgs/3.jpg", carrito, 18));
-catalogo.agregarArticulo(new Articulo(4, "Chomba Polo Azul", 46500, "./imgs/4.jpg", carrito, 22));
-catalogo.agregarArticulo(new Articulo(5, "Chomba Polo Negra", 46500, "./imgs/5.jpg", carrito, 16));
+catalogo.agregarArticulo(new Articulo(3, "Camisa LV Azul", 72199.99, "./imgs/3.jpg", carrito, 5));
+catalogo.agregarArticulo(new Articulo(4, "Chomba Polo Azul", 46500, "./imgs/4.jpg", carrito, 1));
+catalogo.agregarArticulo(new Articulo(5, "Chomba Polo Negra", 46500, "./imgs/5.jpg", carrito, 7));
 catalogo.agregarArticulo(new Articulo(6, "Chomba Polo Roja", 46500, "./imgs/6.jpg", carrito, 11));
-catalogo.agregarArticulo(new Articulo(7, "Gorra Amiri Roja", 21000, "./imgs/7.jpg", carrito, 24));
-catalogo.agregarArticulo(new Articulo(8, "Buzo Bappe Baby Milo Negro", 35500, "./imgs/8.jpg", carrito, 23));
+catalogo.agregarArticulo(new Articulo(7, "Gorra Amiri Roja", 21000, "./imgs/7.jpg", carrito, 2));
+catalogo.agregarArticulo(new Articulo(8, "Buzo Bappe Baby Milo Negro", 35500, "./imgs/8.jpg", carrito, 6));
 
 catalogo.mostrarArticulos();
 

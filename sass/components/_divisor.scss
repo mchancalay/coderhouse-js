@@ -1,0 +1,34 @@
+@use '../base/colors';
+@use '../base/fonts';
+@use '../utilities/vars';
+
+.divisor {
+    display: flex;
+    align-items: center;
+    color: colors.$color-dark;
+    margin-bottom: 50px;
+
+    &__linea {
+        width: 100%;
+        height: 1px;
+        background-color: colors.$color-light;
+        flex: 1;
+    }
+
+    &__texto {
+        text-align: center;
+        padding: 0 2em;
+    }
+
+    &__titulo {
+        font-family: fonts.$font-stretch;
+        text-transform: uppercase;
+        letter-spacing: 20px;
+        margin-bottom: 5px;
+    }
+
+    &__subtitulo {
+        color: colors.$color-light2;
+    }
+
+}
