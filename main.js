@@ -5,6 +5,11 @@ import Carrito from './js/Carrito.js';
 const catalogo = new Catalogo();
 const carrito = new Carrito();
 
+if(localStorage.getItem("carrito")){
+  carrito.articulos = JSON.parse(localStorage.getItem("carrito"));
+}
+
+
 catalogo.agregarArticulo(new Articulo(1, "Chaleco The North Face Negro", 94999.99, "./imgs/1.jpg", carrito, 4));
 catalogo.agregarArticulo(new Articulo(2, "Camisa LV Blanca", 72199.99, "./imgs/2.jpg", carrito, 2));
 catalogo.agregarArticulo(new Articulo(3, "Camisa LV Azul", 72199.99, "./imgs/3.jpg", carrito, 5));

@@ -22,6 +22,7 @@ export default class Carrito {
         articulo.cantidad++;
         this.articulos.push(articulo);
       }
+    localStorage.setItem("carrito", JSON.stringify(this.articulos));
       Toastify({
         text: `${articulo.nombre} se agregó al carrito`,
         duration: 1500,
@@ -56,7 +57,6 @@ export default class Carrito {
       a.cantidad = 1;
     })
     this.articulos = [];
-    this.resetearCantidadEnElIndex();
   }
 
   limpiezaCarrito() {
